@@ -2,9 +2,9 @@ name: Shell Commands
 
 on:
   push:
-    branches: [ master ]
+    branches: [ dev ]
     paths: 
-      - 'beavis/**'
+      - 'butt-head/**'
 jobs:
   run-shell-commands:
     runs-on: ubuntu-latest
@@ -15,8 +15,3 @@ jobs:
         run: |
           node -v
           npm -v
-      - name: python Command
-        run: |
-          import platform
-          print (platform.processor())
-        shell: python
