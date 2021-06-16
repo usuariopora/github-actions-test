@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: decrypt file
-        run: gpg --quiet --batch --yes --decrypt--passphrase="$PASSPHRASE" --output $HOME/secrets.json secrets.json.gpg
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets.json secrets.json.gpg
         env:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
       - name: Print or file content
