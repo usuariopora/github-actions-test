@@ -47,7 +47,7 @@ jobs:
   decrypt:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v1
+      - uses: actions/checkout@v1
       - name: decrypt file
         run: gpg --quiet --batch --yes --decrypt--passphrase="$PASSPHRASE" --output $HOME/secrets.json secrets.json.gpg
         env:
