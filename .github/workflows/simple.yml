@@ -44,3 +44,13 @@ jobs:
           echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
           echo "GITHUB_SHA: ${GITHUB_SHA}"
           echo "GITHUB_REF: ${GITHUB_REF}"
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v1
+      - name: decrypt file
+        run: gpg --quiet --batch --yes --decrypt--passphrase="$PASSPHRASE" --output $HOME/secrets.json secrets.json.gpg
+        env:
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+      - name: Print or file content
+        run: cat $HOME/secrets.json
