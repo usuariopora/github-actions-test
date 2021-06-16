@@ -49,8 +49,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: decrypt file
-        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/beavis/secrets.json $HOME/beavis/secrets.json.gpg
+        run: |
+          cd beavis/
+          gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output secrets.json secrets.json.gpg
         env:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
       - name: Print or file content
-        run: cat $HOME/beavis/secrets.json
+        run: |
+          cd beavis/
+          cat secrets.json
