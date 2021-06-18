@@ -5,6 +5,9 @@ on:
     branches: [ master ]
     paths: 
       - 'beavis/**'
+env:
+  WF_ENV: Available to all jobs
+
 jobs:
   run-shell-commands:
     runs-on: ubuntu-latest
@@ -44,6 +47,7 @@ jobs:
           echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
           echo "GITHUB_SHA: ${GITHUB_SHA}"
           echo "GITHUB_REF: ${GITHUB_REF}"
+          echo "WF_ENV": ${WF_ENV}
   decrypt:
     runs-on: ubuntu-latest
     steps:
