@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths: 
       - 'beavis/**'
+
 env:
   WF_ENV: Available to all jobs
 
