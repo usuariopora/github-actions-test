@@ -10,6 +10,7 @@ jobs:
         run: |
           node -v
           python --version
+          cat /etc/os-release
       - uses: actions/setup-node@v1
         with:
           node-version: 6
